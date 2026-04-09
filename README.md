@@ -1,1 +1,1 @@
-# Durojaye-Alao-Memorial-College-Marketplace
+# Durojaye-Alao-Memorial-College
