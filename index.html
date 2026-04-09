@@ -6,16 +6,127 @@
   <title>Durojaiye Alao Memorial College</title>
   <meta name="description" content="Durojaiye Alao Memorial College Portal">
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f5f5f5; }
-    h1 { color: #2c3e50; }
-    form { background: white; padding: 20px; margin: 20px auto; width: 300px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input { display: block; margin: 10px auto; padding: 10px; width: 90%; }
-    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
-    #dashboard { display: none; margin-top: 20px; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#2c3e50; color:white; border-radius:8px; }
-    header a.logo { color:white; text-decoration:none; font-weight:bold; font-size:1.2em; }
-    nav a { color:white; margin-left:15px; text-decoration:none; }
-    footer { margin-top:50px; color:#555; }
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fffaf0; /* soft cream */
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff; /* white header */
+      border-bottom: 3px solid #e6d6c3; /* light cream border */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    header a.logo {
+      color: #b03a2e; /* subtle red */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    nav a {
+      color: #1a4d8f; /* subtle blue */
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #b03a2e; /* red hover */
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      color: #b03a2e; /* red main title */
+      margin-bottom: 40px;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      margin: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 320px;
+      transition: transform 0.2s;
+    }
+
+    form:hover {
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #1a4d8f; /* blue subhead */
+    }
+
+    input {
+      display: block;
+      margin: 12px auto;
+      padding: 12px;
+      width: 90%;
+      border: 1px solid #e6d6c3;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      background: #1a4d8f; /* blue button */
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #b03a2e; /* red on hover */
+    }
+
+    #dashboard {
+      display: none;
+      background: #fff;
+      padding: 25px;
+      margin-top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #fff;
+      color: #555;
+      border-top: 3px solid #e6d6c3;
+    }
+
+    @media(max-width: 768px) {
+      main {
+        padding: 30px 10px;
+      }
+      form {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -31,35 +142,35 @@
 
   <!-- Main Section -->
   <main>
-    <section id="signupLoginSection">
-      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    <h1>Durojaiye Alao Memorial College Portal</h1>
 
-        <!-- Sign Up Form -->
-        <form id="signupForm">
-          <h2>Sign Up</h2>
-          <input type="text" id="fullname" placeholder="Full Name" required />
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="password" id="password" placeholder="Password" required />
-          <button type="submit">Sign Up</button>
-        </form>
+    <section id="signupLoginSection" style="display:flex; flex-wrap:wrap; justify-content:center;">
+      
+      <!-- Sign Up Form -->
+      <form id="signupForm">
+        <h2>Sign Up</h2>
+        <input type="text" id="fullname" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
 
-        <!-- Login Form -->
-        <form id="loginForm">
-          <h2>Login</h2>
-          <input type="email" id="loginEmail" placeholder="Email" required />
-          <input type="password" id="loginPassword" placeholder="Password" required />
-          <button type="submit">Login</button>
-        </form>
+      <!-- Login Form -->
+      <form id="loginForm">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
 
-      </div>
-
-      <!-- Dashboard -->
-      <div id="dashboard">
-        <h2>Welcome, <span id="userName"></span>!</h2>
-        <p>You are now logged in to the Durojaiye Alao Memorial College Portal.</p>
-        <button id="logoutBtn">Logout</button>
-      </div>
     </section>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+      <h2>Welcome, <span id="userName"></span>!</h2>
+      <p>You are now logged in to the Durojaiye Alao Memorial College Portal.</p>
+      <button id="logoutBtn">Logout</button>
+    </div>
   </main>
 
   <!-- Footer -->
