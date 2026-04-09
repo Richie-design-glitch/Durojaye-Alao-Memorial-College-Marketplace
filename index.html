@@ -44,7 +44,7 @@ footer{padding:20px;text-align:center;background: linear-gradient(145deg,#fffaf0
   <h1>Durojaiye Alao Memorial College</h1>
   <p><strong>Motto:</strong> Imperishable Heritage</p>
   <div class="banner">
-    <img src="https://via.placeholder.com/1000x300.png?text=Welcome+to+DAMC" alt="Banner">
+    <img src="https://images.pexels.com/photos/256540/pexels-photo-256540.jpeg" alt="School Campus Banner">
   </div>
   <h2>About the School</h2>
   <p>Founded in 2004 by Chief George Afolabi Ibirinde. Proprietor: Mr. Ibirinde Oluwaseun. Principal: Mrs. Ibirinde Oluwabukola.</p>
@@ -56,15 +56,15 @@ footer{padding:20px;text-align:center;background: linear-gradient(145deg,#fffaf0
 <section id="screen2">
   <h2>Staff Directory</h2>
   <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Principal"><p>Mrs. Ibirinde Oluwabukola<br>Principal</p></div>
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Teacher"><p>Mr. John Smith<br>Math Teacher</p></div>
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Teacher"><p>Ms. Mary Johnson<br>Science Teacher</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/4143799/pexels-photo-4143799.jpeg" alt="Principal"><p>Mrs. Ibirinde Oluwabukola<br>Principal</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" alt="Teacher"><p>Mr. John Smith<br>Math Teacher</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg" alt="Teacher"><p>Ms. Mary Johnson<br>Science Teacher</p></div>
   </div>
   <h2>Facilities</h2>
   <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Library"><p>Library</p></div>
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Lab"><p>Science Lab</p></div>
-    <div class="card"><img src="https://via.placeholder.com/150" alt="Sports"><p>Sports Complex</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg" alt="Library"><p>Library</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/2562627/pexels-photo-2562627.jpeg" alt="Science Lab"><p>Science Lab</p></div>
+    <div class="card"><img src="https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg" alt="Sports Complex"><p>Sports Complex</p></div>
   </div>
   <button onclick="prevScreen(1)">Back</button>
   <button onclick="nextScreen(3)">Next</button>
@@ -74,8 +74,8 @@ footer{padding:20px;text-align:center;background: linear-gradient(145deg,#fffaf0
 <section id="screen3">
   <h2>News & Events</h2>
   <div class="banner">
-    <img src="https://via.placeholder.com/1000x300.png?text=Science+Fair" alt="Event">
-    <img src="https://via.placeholder.com/1000x300.png?text=Sports+Day" alt="Event">
+    <img src="https://images.pexels.com/photos/159299/school-education-children-children-playing-159299.jpeg" alt="School Event">
+    <img src="https://images.pexels.com/photos/4144226/pexels-photo-4144226.jpeg" alt="School Sports Day">
   </div>
   <p>Stay updated with upcoming school events, announcements, and achievements.</p>
   <button onclick="prevScreen(2)">Back</button>
@@ -104,7 +104,7 @@ footer{padding:20px;text-align:center;background: linear-gradient(145deg,#fffaf0
 <!-- SCREEN 5: Dashboard -->
 <section id="screen5">
   <h2>Welcome, <span id="userName"></span>!</h2>
-  <p>You are now logged in to the Durojaiye Alao Memorial College Portal.</p>
+  <p>You're logged into the Durojaiye Alao Memorial College Portal.</p>
   <button id="logoutBtn">Logout</button>
 </section>
 
@@ -148,7 +148,7 @@ document.getElementById("loginForm").addEventListener("submit",function(e){
     document.getElementById("userName").textContent=user.fullname;
     nextScreen(5);
     alert(`Welcome back, ${user.fullname}!`);
-  }else{ alert("Invalid email or password!"); }
+  } else { alert("Invalid login details!"); }
 });
 
 // Logout
@@ -157,5 +157,6 @@ document.getElementById("logoutBtn").addEventListener("click",()=>{
   nextScreen(4);
 });
 </script>
+
 </body>
 </html>
