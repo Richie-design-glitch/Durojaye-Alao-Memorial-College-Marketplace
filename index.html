@@ -1,167 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durojaye Alao Memorial College </title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f5f5f5;
-}
-
-header {
-  background: #1dbf73;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
-
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-}
-
-button {
-  background: #1dbf73;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.card {
-  background: white;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-.hidden { display: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durojaiye Alao Memorial College</title>
+  <meta name="description" content="Durojaiye Alao Memorial College Portal">
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f5f5f5; }
+    h1 { color: #2c3e50; }
+    form { background: white; padding: 20px; margin: 20px auto; width: 300px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input { display: block; margin: 10px auto; padding: 10px; width: 90%; }
+    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    #dashboard { display: none; margin-top: 20px; }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h2>Durojaye Alao Memorial College</h2>
-</header>
+  <h1>Durojaiye Alao Memorial College</h1>
 
-<div class="container">
+  <!-- Sign Up Form -->
+  <form id="signupForm">
+    <h2>Sign Up</h2>
+    <input type="text" id="fullname" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+  </form>
 
-<!-- AUTH -->
-<div id="auth">
-<h3>Login / Sign Up</h3>
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
+  <!-- Login Form -->
+  <form id="loginForm">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
 
-<button onclick="signup()">Sign Up</button>
-<button onclick="login()">Login</button>
-</div>
+  <!-- Dashboard after login -->
+  <div id="dashboard">
+    <h2>Welcome, <span id="userName"></span>!</h2>
+    <p>You are now logged in to Durojaiye Alao Memorial College Portal.</p>
+    <button id="logoutBtn">Logout</button>
+  </div>
 
-<!-- APP -->
-<div id="app" class="hidden">
+  <footer>
+    <p>&copy; 2026 Durojaiye Alao Memorial College</p>
+  </footer>
 
-<h3>Post a Service</h3>
-<input id="title" placeholder="Service Title">
-<input id="price" placeholder="Price">
-<button onclick="addService()">Post</button>
+  <script>
+    // Helper function to get users from local storage
+    function getUsers() {
+      return JSON.parse(localStorage.getItem("users") || "[]");
+    }
 
-<h3>Marketplace</h3>
-<div id="services"></div>
+    // Sign Up
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const users = getUsers();
 
-<button onclick="logout()">Logout</button>
+      if (users.find(user => user.email === email)) {
+        alert("User already exists!");
+        return;
+      }
 
-</div>
+      users.push({ fullname, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Sign up successful! You can now log in.");
+      this.reset();
+    });
 
-</div>
+    // Login
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      const users = getUsers();
+      const user = users.find(u => u.email === email && u.password === password);
 
-<script>
-const supabase = window.supabase.createClient(
-  "PASTE_YOUR_PROJECT_URL",
-  "PASTE_YOUR_ANON_KEY"
-);
+      if (user) {
+        alert(`Welcome back, ${user.fullname}!`);
+        document.getElementById("userName").textContent = user.fullname;
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("signupForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "none";
+      } else {
+        alert("Invalid email or password!");
+      }
+    });
 
-// AUTO LOGIN CHECK
-async function checkUser(){
-  const { data } = await supabase.auth.getUser();
-  if(data.user){
-    showApp();
-  }
-}
-checkUser();
-
-// SIGNUP
-async function signup(){
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  let { error } = await supabase.auth.signUp({ email, password });
-
-  if(error) alert(error.message);
-  else alert("Check your email!");
-}
-
-// LOGIN
-async function login(){
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  let { error } = await supabase.auth.signInWithPassword({ email, password });
-
-  if(error) alert(error.message);
-  else showApp();
-}
-
-// SHOW APP
-function showApp(){
-  document.getElementById("auth").classList.add("hidden");
-  document.getElementById("app").classList.remove("hidden");
-  loadServices();
-}
-
-// LOGOUT
-async function logout(){
-  await supabase.auth.signOut();
-  location.reload();
-}
-
-// ADD SERVICE
-async function addService(){
-  let title = document.getElementById("title").value;
-  let price = document.getElementById("price").value;
-
-  await supabase.from("services").insert([{ title, price }]);
-  loadServices();
-}
-
-// LOAD SERVICES
-async function loadServices(){
-  let { data } = await supabase.from("services").select("*");
-
-  let container = document.getElementById("services");
-  container.innerHTML = "";
-
-  data.forEach(s => {
-    container.innerHTML += `
-      <div class="card">
-        <h4>${s.title}</h4>
-        <p>₦${s.price}</p>
-      </div>
-    `;
-  });
-}
-</script>
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+      document.getElementById("loginForm").style.display = "block";
+      alert("You have been logged out.");
+    });
+  </script>
 
 </body>
 </html>
