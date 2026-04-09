@@ -15,13 +15,14 @@
       color: #333;
     }
 
+    /* Header with gradient */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
-      background: #fff; /* white header */
-      border-bottom: 3px solid #e6d6c3; /* light cream border */
+      background: linear-gradient(135deg, #fffaf0, #f0f5ff); /* cream to soft blue */
+      border-bottom: 3px solid #e6d6c3;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
@@ -54,25 +55,31 @@
     h1 {
       color: #b03a2e; /* red main title */
       margin-bottom: 40px;
+      background: linear-gradient(90deg, #fffaf0 0%, #f0f5ff 100%);
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
 
     form {
-      background: #fff;
+      background: linear-gradient(145deg, #fff, #fffaf0); /* subtle cream gradient */
       padding: 25px;
       margin: 15px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       width: 320px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     form:hover {
       transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     h2 {
       margin-bottom: 15px;
       color: #1a4d8f; /* blue subhead */
+      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
     }
 
     input {
@@ -85,24 +92,31 @@
       font-size: 1em;
     }
 
+    input:focus {
+      outline: none;
+      border-color: #1a4d8f;
+      box-shadow: 0 0 5px #1a4d8f33;
+    }
+
     button {
-      background: #1a4d8f; /* blue button */
+      background: linear-gradient(90deg, #1a4d8f, #3a6fcf); /* subtle blue gradient */
       color: #fff;
       border: none;
       padding: 12px 20px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
     button:hover {
-      background: #b03a2e; /* red on hover */
+      background: linear-gradient(90deg, #b03a2e, #d65a4f); /* subtle red gradient */
+      transform: scale(1.05);
     }
 
     #dashboard {
       display: none;
-      background: #fff;
+      background: linear-gradient(145deg, #fffaf0, #f0f5ff);
       padding: 25px;
       margin-top: 30px;
       border-radius: 12px;
@@ -114,9 +128,10 @@
     footer {
       margin-top: 50px;
       padding: 20px;
-      background: #fff;
+      background: linear-gradient(145deg, #fffaf0, #f0f5ff);
       color: #555;
       border-top: 3px solid #e6d6c3;
+      text-align: center;
     }
 
     @media(max-width: 768px) {
