@@ -1,162 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durojaiye Alao Memorial College</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin:0; padding:0;
-  background: #fffaf0;
-  color: #333;
-}
-h1,h2,h3{margin:0 0 15px 0;}
-a{color:#1a4d8f; text-decoration:none;}
-a:hover{color:#b03a2e;}
-button{
-  background: linear-gradient(90deg,#1a4d8f,#3a6fcf);
-  color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s;
-}
-button:hover{background: linear-gradient(90deg,#b03a2e,#d65a4f); transform:scale(1.05);}
-section{padding:50px 20px; display:none;}
-.active{display:block;}
-form{
-  background: linear-gradient(145deg,#fff,#fffaf0);
-  padding:25px; margin:15px auto; border-radius:12px; width:320px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:0.2s;
-}
-form:hover{transform: translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-input,textarea{display:block;width:90%;margin:12px auto;padding:12px;border-radius:8px;border:1px solid #e6d6c3;}
-input:focus,textarea:focus{outline:none;border-color:#1a4d8f; box-shadow:0 0 5px #1a4d8f33;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px;}
-.card{background:#fffaf0;padding:15px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:center;}
-.card img{width:100%;border-radius:12px;margin-bottom:10px;}
-.banner img{width:100%;border-radius:12px;margin:15px 0;}
-footer{padding:20px;text-align:center;background: linear-gradient(145deg,#fffaf0,#f0f5ff);border-top:3px solid #e6d6c3;}
-@media(max-width:768px){.grid{grid-template-columns:1fr;}form{width:90%;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durojaiye Alao Memorial College</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    header {
+      background: #004aad;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav {
+      background: #003580;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('images/school.jpg') center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- SCREEN 1: Welcome + About -->
-<section id="screen1" class="active">
+<header>
   <h1>Durojaiye Alao Memorial College</h1>
-  <p><strong>Motto:</strong> Imperishable Heritage</p>
-  <div class="banner">
-    <img src="https://images.pexels.com/photos/256540/pexels-photo-256540.jpeg" alt="School Campus Banner">
-  </div>
-  <h2>About the School</h2>
-  <p>Founded in 2004 by Chief George Afolabi Ibirinde. Proprietor: Mr. Ibirinde Oluwaseun. Principal: Mrs. Ibirinde Oluwabukola.</p>
-  <p>Our vision: To provide quality education and nurture excellence in every student.</p>
-  <button onclick="nextScreen(2)">Next</button>
+  <p>Excellence • Discipline • Integrity</p>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Admissions</a>
+  <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Welcome to Durojaiye Alao Memorial College</h1>
+  <p>A leading secondary school in Ipokia, Ogun State</p>
 </section>
 
-<!-- SCREEN 2: Staff & Facilities -->
-<section id="screen2">
-  <h2>Staff Directory</h2>
-  <div class="grid">
-    <div class="card"><img src="https://images.pexels.com/photos/4143799/pexels-photo-4143799.jpeg" alt="Principal"><p>Mrs. Ibirinde Oluwabukola<br>Principal</p></div>
-    <div class="card"><img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" alt="Teacher"><p>Mr. John Smith<br>Math Teacher</p></div>
-    <div class="card"><img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg" alt="Teacher"><p>Ms. Mary Johnson<br>Science Teacher</p></div>
-  </div>
-  <h2>Facilities</h2>
-  <div class="grid">
-    <div class="card"><img src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg" alt="Library"><p>Library</p></div>
-    <div class="card"><img src="https://images.pexels.com/photos/2562627/pexels-photo-2562627.jpeg" alt="Science Lab"><p>Science Lab</p></div>
-    <div class="card"><img src="https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg" alt="Sports Complex"><p>Sports Complex</p></div>
-  </div>
-  <button onclick="prevScreen(1)">Back</button>
-  <button onclick="nextScreen(3)">Next</button>
+<section class="section">
+  <h2>About Us</h2>
+  <p>
+    Durojaiye Alao Memorial College is committed to providing quality education,
+    shaping future leaders, and building strong moral values in students.
+  </p>
 </section>
 
-<!-- SCREEN 3: News & Events -->
-<section id="screen3">
-  <h2>News & Events</h2>
-  <div class="banner">
-    <img src="https://images.pexels.com/photos/159299/school-education-children-children-playing-159299.jpeg" alt="School Event">
-    <img src="https://images.pexels.com/photos/4144226/pexels-photo-4144226.jpeg" alt="School Sports Day">
+<section class="section">
+  <h2>Our Facilities</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="images/classroom.jpg" alt="Classroom">
+      <h3>Modern Classrooms</h3>
+      <p>Well-equipped classrooms for effective learning.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/library.jpg" alt="Library">
+      <h3>Library</h3>
+      <p>A rich collection of books and learning materials.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/lab.jpg" alt="Laboratory">
+      <h3>Science Lab</h3>
+      <p>Fully equipped labs for practical science education.</p>
+    </div>
+
   </div>
-  <p>Stay updated with upcoming school events, announcements, and achievements.</p>
-  <button onclick="prevScreen(2)">Back</button>
-  <button onclick="nextScreen(4)">Next</button>
 </section>
 
-<!-- SCREEN 4: Login / Sign Up -->
-<section id="screen4">
-  <h2>Student Portal</h2>
-  <form id="signupForm">
-    <h3>Sign Up</h3>
-    <input type="text" id="fullname" placeholder="Full Name" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Register</button>
-  </form>
-  <form id="loginForm">
-    <h3>Login</h3>
-    <input type="email" id="loginEmail" placeholder="Email" required>
-    <input type="password" id="loginPassword" placeholder="Password" required>
-    <button type="submit">Login</button>
-  </form>
-  <button onclick="prevScreen(3)">Back</button>
+<section class="section">
+  <h2>Admissions</h2>
+  <p>Admissions are open for new students. Contact us for more information.</p>
 </section>
 
-<!-- SCREEN 5: Dashboard -->
-<section id="screen5">
-  <h2>Welcome, <span id="userName"></span>!</h2>
-  <p>You're logged into the Durojaiye Alao Memorial College Portal.</p>
-  <button id="logoutBtn">Logout</button>
+<section class="section">
+  <h2>Contact Us</h2>
+  <p><strong>Location:</strong> Ipokia, Ogun State, Nigeria</p>
+  <p><strong>Email:</strong> info@durojayealaocollege.com</p>
+  <p><strong>Phone:</strong> +234 800 000 0000</p>
 </section>
 
 <footer>
-  <p>&copy; 2026 Durojaiye Alao Memorial College</p>
+  <p>© 2026 Durojaiye Alao Memorial College. All rights reserved.</p>
 </footer>
-
-<script>
-// Multi-screen navigation
-function nextScreen(n){
-  for(let i=1;i<=5;i++){ document.getElementById(`screen${i}`).classList.remove('active'); }
-  document.getElementById(`screen${n}`).classList.add('active');
-}
-function prevScreen(n){ nextScreen(n); }
-
-// Users storage
-function getUsers(){ return JSON.parse(localStorage.getItem("users")||"[]"); }
-
-// Sign Up
-document.getElementById("signupForm").addEventListener("submit",function(e){
-  e.preventDefault();
-  const fullname=document.getElementById("fullname").value;
-  const email=document.getElementById("email").value;
-  const password=document.getElementById("password").value;
-  const users=getUsers();
-  if(users.find(u=>u.email===email)){ alert("User already exists!"); return; }
-  users.push({fullname,email,password});
-  localStorage.setItem("users",JSON.stringify(users));
-  alert("Sign up successful! You can now log in.");
-  this.reset();
-});
-
-// Login
-document.getElementById("loginForm").addEventListener("submit",function(e){
-  e.preventDefault();
-  const email=document.getElementById("loginEmail").value;
-  const password=document.getElementById("loginPassword").value;
-  const users=getUsers();
-  const user=users.find(u=>u.email===email && u.password===password);
-  if(user){
-    document.getElementById("userName").textContent=user.fullname;
-    nextScreen(5);
-    alert(`Welcome back, ${user.fullname}!`);
-  } else { alert("Invalid login details!"); }
-});
-
-// Logout
-document.getElementById("logoutBtn").addEventListener("click",()=>{
-  alert("You have been logged out.");
-  nextScreen(4);
-});
-</script>
 
 </body>
 </html>
